@@ -1,9 +1,18 @@
 'use client'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import Image from 'next/image'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
+import { useSigner } from 'wagmi'
 
 const Navbar: FC = () => {
+
+  const { data, status } = useSigner();
+  useEffect(() => {
+    if (data && status === 'success') {
+      
+    }
+  }, [data, status]);
+  
   return (
     <>
       <div className='fixed right-5 top-4 z-50 md:right-10 md:top-10'>
